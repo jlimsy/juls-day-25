@@ -1,14 +1,15 @@
 import { Canvas } from "@react-three/fiber";
+import { Pokeball } from "./Pokeball";
+import { Environment, OrbitControls } from "@react-three/drei";
 
 function App() {
   return (
     <div id="canvas-container" className="h-screen w-screen">
-      <div className="text-amber-300 text-3xl font-bold">hello</div>
       <Canvas>
-        <mesh>
-          <boxGeometry />
-          <meshStandardMaterial />
-        </mesh>
+        <Environment preset="sunset" />
+
+        <Pokeball />
+        <OrbitControls />
       </Canvas>
     </div>
   );
