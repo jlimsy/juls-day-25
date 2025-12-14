@@ -9,6 +9,7 @@ import { useFrame } from "@react-three/fiber";
 export function Pokeball(props) {
   const { nodes, materials } = useGLTF("./pokeball.glb");
   const pokeballRef = useRef();
+  const { setShowText } = props;
 
   // Button
   const buttonRef = useRef();
@@ -22,6 +23,8 @@ export function Pokeball(props) {
 
   const handleButtonClick = () => {
     if (!buttonRef.current) return;
+
+    setShowText(true);
 
     // Button Position
 
@@ -69,11 +72,6 @@ export function Pokeball(props) {
   const handleClosePokeball = () => {
     if (!topRef.current) return;
 
-    console.log(
-      topRef.current,
-      topRef.current.rotation.x,
-      topClosedRotation.current
-    );
     topTargetRotation.current = topClosedRotation.current;
     topRef.current.position.z = topOriginalZ.current;
   };

@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+
+.animate-typing {
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1;
+  position: relative;
+  animation: typing 3.5s steps(40, end) forwards;
+}
+/* 
+.animate-typing::after {
+  content: "";
+  display: inline-block;
+  width: 0.12em;
+  height: 1em;             
+  background: black;
+  margin-left: 2px;
+  animation: blink-caret 0.75s step-end infinite;
+} */
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  50% { opacity: 0 }
+}
