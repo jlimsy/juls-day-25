@@ -7,7 +7,7 @@ import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 export function Pokeball(props) {
-  const { nodes, materials } = useGLTF("/pokeball.glb");
+  const { nodes, materials } = useGLTF("./pokeball.glb");
   const pokeballRef = useRef();
 
   // Button
@@ -130,4 +130,4 @@ export function Pokeball(props) {
   );
 }
 
-useGLTF.preload("/pokeball.glb");
+useGLTF.preload("./pokeball.glb");
