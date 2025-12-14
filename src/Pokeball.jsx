@@ -17,7 +17,7 @@ export function Pokeball(props) {
   // Lid
   const topRef = useRef();
   const topClosedRotation = useRef(null);
-  const topOpenRotation = useRef(null);
+  const topTargetRotation = useRef(null);
   const topOriginalZ = useRef(null);
 
   const handleButtonClick = () => {
@@ -43,8 +43,8 @@ export function Pokeball(props) {
       topOriginalZ.current = topRef.current.position.z;
     }
 
-    topOpenRotation.current = topClosedRotation.current - Math.PI / 3;
-    topRef.current.position.z = topOriginalZ.current - 0.1;
+    topTargetRotation.current = topClosedRotation.current - Math.PI / 3;
+    topRef.current.position.z = topOriginalZ.current - 0.2;
   };
 
   useFrame((state) => {
@@ -59,17 +59,23 @@ export function Pokeball(props) {
   });
 
   useFrame(() => {
-    if (!topRef.current || topOpenRotation.current === null) return;
+    if (!topRef.current || topTargetRotation.current === null) return;
 
     // Smoothly move toward target
     topRef.current.rotation.x +=
-      (topOpenRotation.current - topRef.current.rotation.x) * 0.1;
+      (topTargetRotation.current - topRef.current.rotation.x) * 0.1;
   });
 
   const handleClosePokeball = () => {
     if (!topRef.current) return;
 
-    topRef.current.rotation.x = topClosedRotation.current;
+    console.log(
+      topRef.current,
+      topRef.current.rotation.x,
+      topClosedRotation.current
+    );
+    topTargetRotation.current = topClosedRotation.current;
+    topRef.current.position.z = topOriginalZ.current;
   };
 
   return (
