@@ -7,7 +7,7 @@ import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 export function Takoyaki(props) {
-  const { nodes, materials } = useGLTF("/takoyaki.glb");
+  const { nodes, materials } = useGLTF("./takoyaki.glb");
   const groupRef = useRef();
 
   useFrame((state) => {
@@ -45,4 +45,4 @@ export function Takoyaki(props) {
   );
 }
 
-useGLTF.preload("/takoyaki.glb");
+useGLTF.preload("./takoyaki.glb");
