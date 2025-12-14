@@ -9,7 +9,7 @@ import { useFrame } from "@react-three/fiber";
 export function Pokeball(props) {
   const { nodes, materials } = useGLTF("./pokeball.glb");
   const pokeballRef = useRef();
-  const { setShowText } = props;
+  const { setShowText, setShowMessage } = props;
 
   // Button
   const buttonRef = useRef();
@@ -25,6 +25,10 @@ export function Pokeball(props) {
     if (!buttonRef.current) return;
 
     setShowText(true);
+
+    setTimeout(() => {
+      setShowMessage(true);
+    }, 2000); //
 
     // Button Position
 
