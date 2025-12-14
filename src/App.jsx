@@ -43,6 +43,8 @@ function App() {
                     love that you have such a big heart towards others and
                     towards me. & I can't wait to see what the future holds for
                     us!
+                    <br />
+                    <br />- From Your Future Princess
                   </p>
                 </div>
               </div>
